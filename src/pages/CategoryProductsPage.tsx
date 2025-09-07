@@ -15,10 +15,10 @@ const CategoryProductsPage: React.FC = () => {
     const [sortBy, setSortBy] = useState('name');
 
     const category = categories.find(c => c.name.toLowerCase() === categoryName?.toLowerCase());
-    const categoryDisplayName = categoryName?.charAt(0).toUpperCase() + categoryName?.slice(1);
+    const categoryDisplayName = (categoryName as string).charAt(0).toUpperCase() + categoryName?.slice(1);
 
     const filteredProducts = useMemo(() => {
-        let filtered = products.filter(product => {
+        const filtered = products.filter(product => {
             const matchesCategory = product.category.toLowerCase() === categoryName?.toLowerCase();
             const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 product.description.toLowerCase().includes(searchTerm.toLowerCase());

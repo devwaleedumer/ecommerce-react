@@ -15,7 +15,7 @@ const ProductsPage: React.FC = () => {
     const categories = [...new Set(products.map(p => p.category))];
 
     const filteredProducts = useMemo(() => {
-        let filtered = products.filter(product => {
+        const filtered = products.filter(product => {
             const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 product.description.toLowerCase().includes(searchTerm.toLowerCase());
             const matchesCategory = !selectedCategory || product.category === selectedCategory;
